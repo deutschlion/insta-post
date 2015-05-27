@@ -1,9 +1,10 @@
 /************************************* 
 * @project: Instagram Media Uploader *
-* @version: 0.1.2 					 *
-* @author: deutschlion				 *
+* @version: 0.1.2 		     *
+* @author: deutschlion		     *
 **************************************/
 // USE IT FOR YOUR OWN RISK
+// Don't forget to change USERNAME,PASSWORD,SECRET_KEY to correct
 
 // require modules
 var request	= require('request');
@@ -20,8 +21,8 @@ var _guid = uuid.v4();
 var _csrf = '';
 var _ts = '';
 var config = {
-	username: 'florentina.88',		// Set username
-	password: 'aeH3WEMi',			// Set password
+	username: 'USERNAME',			// Set account username
+	password: 'PASSWORD',			// Set account password
 	filename: 'img/demo.jpg', 		// Set the path to the file that you wish to post.
 									// This must be jpeg format and it must be a perfect square
 	caption: "Test caption", 		// Set the caption for the photo
@@ -43,7 +44,7 @@ var baseRequest = request.defaults({
 
 // functions
 function signData(data) {
-	var sharedSecret = "6d51fe001d37fae892bfd51b334cf2deaa66dc8822ff37e8d0f45e8883d56061";
+	var sharedSecret = "SECRET_KEY"; //  http://pastebin.com/vA7NFY5g
 	var buffer = new Buffer(data, "utf-8");
 	var hash = crypto.createHmac("sha256", sharedSecret).update(buffer).digest("hex");
 	//
